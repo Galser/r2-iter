@@ -1,3 +1,5 @@
+use std::{result::Iter, string};
+
 fn print_elements(elements:  &[String]) {
     // for element in elements {
     //     println!("{}", element);
@@ -8,18 +10,22 @@ fn print_elements(elements:  &[String]) {
         .for_each(|el| println!("{}", el));
 }
 
+fn shorten_strings(elements:  &mut Vec<String>) {
+    elements.iter().for_each(|el| el.truncate(el.len()-1));
+}
 
 fn main() {
     
-    let colors = vec![
+    let mut colors = vec![
         String::from("red"),
         String::from("green"),
         String::from("blue"),
         String::from("yellow"),
     ];
     
-    print_elements(&colors[1..4]);
+    print_elements(&colors[1..3]);
 
+    shorten_strings(&mut colors);
     // let mut colors_iter = colors.iter();
         
     // println!("{:#?}", colors_iter.next());
